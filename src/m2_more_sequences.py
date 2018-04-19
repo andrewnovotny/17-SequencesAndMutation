@@ -10,8 +10,8 @@ for ITERATING through SEQUENCES, including selections from:
   -- Looking at two sequences in parallel
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Andrew Novotny.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -103,10 +103,15 @@ def shortest_string(strings):
       :type strings: list[str]   or tuple(str)
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    ss = 0
+    length = len(strings)
+    for k in range(length):
+        if len(strings[k]) < len(strings[ss]):
+            ss = k
+    return strings[ss]
 
 def run_test_index_of_largest_number():
     """ Tests the   index_of_largest_number   function. """
@@ -180,11 +185,14 @@ def index_of_largest_number(numbers, n):
 
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
-
+    largest = 0
+    for k in range(n):
+        if numbers[k] > numbers[largest]:
+            largest = k
+    return largest
 # ----------------------------------------------------------------------
 # Some problems iterate (loop) through the sequence accessing TWO
 # (or more) places in the sequence AT THE SAME ITERATION, like these:
@@ -235,10 +243,15 @@ def number_of_stutters(s):
        :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
+    length = len(s)
+    count = 0
+    for k in range(length - 1):
+        if s[k] == s[k + 1]:
+            count += 1
+    return count
 
 def run_test_is_palindrome():
     """ Tests the   is_palindrome   function. """
@@ -308,7 +321,7 @@ def is_palindrome(s):
       :type s: str
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     ####################################################################
@@ -317,8 +330,12 @@ def is_palindrome(s):
     #   above are particularly good examples to work by hand.
     ####################################################################
     # ------------------------------------------------------------------
+    length = len(s)
 
-
+    for k in range(length // 2):
+        if s[k] != s[length - 1 - k]:
+            return False
+    return True
 # ----------------------------------------------------------------------
 # Some problems loop (iterate) through two or more sequences
 #    IN PARALLEL, as in the   count_same   problem below.
@@ -375,11 +392,15 @@ def count_same(sequence1, sequence2):
       type: sequence2: tuple or list or string
     """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DONE: 6. Implement and test this function.
     #     The testing code is already written for you (above).
     # ------------------------------------------------------------------
-
-
+    same = 0
+    length = len(sequence1)
+    for k in range(length):
+        if sequence1[k] == sequence2[k]:
+            same += 1
+    return same
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------

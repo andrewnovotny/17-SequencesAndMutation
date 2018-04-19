@@ -101,7 +101,7 @@ def move_randomly(window, circle, times_to_move, seconds_per_move):
     # ------------------------------------------------------------------
     for _ in range(times_to_move):
         dx = random.randrange(-5, 7)
-        dy = random.randrange(-5, 6)
+        dy = random.randrange(-5, 5)
         circle.move_by(dx, dy)
         window.render(seconds_per_move)
 
